@@ -10,6 +10,17 @@ from . import main
 logger = get_logger(__name__)
 cfg = get_config()
 
+@main.route('/profile')
+def profile():
+    user = {
+        'username': 'johndoe',
+        'email': 'johndoe@example.com',
+        'name': 'John Doe',
+        'bio': 'Desarrollador backend apasionado por Python y Flask.',
+        'joined': '2020-05-14'
+    }
+    return render_template('profile.html', user=user)
+
 # 通用列表查询
 def common_list(DynamicModel, view):
     # 接收参数
